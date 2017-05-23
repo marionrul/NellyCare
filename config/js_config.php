@@ -11,6 +11,7 @@
         $('.materialboxed').materialbox();
         $('select').material_select();
         $(".dropdown-button").dropdown();
+        $(".button-collapse").sideNav();
     });
 
     $('.datepicker').pickadate({

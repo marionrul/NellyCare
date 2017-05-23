@@ -149,10 +149,10 @@ class Model {
     }
 
 
-    function delete($key) {
+    static function delete($key) {
         // Supprime un tuple de la base de données identifié par le nom d'une variable
 
-        $sql = "DELETE FROM ".static::$table." WHERE ".static::$primary."=:nom_var";
+        $sql = "DELETE FROM ".static::$table." WHERE ".static::$primary.=':nom_var';
 
         try{
 

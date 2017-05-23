@@ -13,6 +13,8 @@ include ('model/modelPrescription.php');
 include ('model/modelActe.php');
 include ('model/modelSuit.php');
 include ('model/modelEvenement.php');
+include ('model/modelMutuelle.php');
+include ('model/modelCaisse.php');
 
 
 function connexion() {

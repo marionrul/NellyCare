@@ -12,7 +12,9 @@
             <li class="collection-header"><h4>Patients</h4></li>
             <?php
             foreach ($patients as $patient){
-                echo "<li class=\"collection-item\"><div> <a href=\"fichePatient.php?idpatient={$patient->getNumSecu()}\" class=\"waves-effect waves-light btn\">{$patient->getPrenom()} {$patient->getNom()}</a></div></li>";
+                echo "<li class=\"collection-item\"><div> <a href=\"fichePatient.php?idpatient={$patient->getNumSecu()}\" class=\"waves-effect waves-light btn\">{$patient->getPrenom()} {$patient->getNom()}</a></div>
+                        <div class=\"right-align\" style=\"margin-right: 40px\"><a class=\"btn waves-effect waves-light\" href=\"controller/controllerSupprimerPatient.php?idpatient={$patient->getNumSecu()}\">Supprimer</a></div>
+                        </li>";
             }
             ?>
         </ul>
@@ -22,3 +24,5 @@
 <?php  include ('config/js_config.php')?>
 </body>
 </html>
+
+

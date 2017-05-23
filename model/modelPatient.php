@@ -60,6 +60,39 @@ class ModelPatient extends Model {
         }
     }
 
+    public static function updatePatient($num, $nom, $prenom, $date_naissance, $tel, $rue, $code_postal, $ville, $qualite) {
+        $sql='UPDATE Patient 
+        SET Nom=:nom, Prenom=:prenom, Date_naissance=:date, Tel=:tel, Rue=:rue, Code_postal=:cp, Ville=:ville, Qualite=:qualite WHERE Num_secu=:num';
+
+        try {
+            $req_prep = Model::$pdo->prepare($sql);
+            $req_prep->bindParam(':num', $num);
+            $req_prep->bindParam(':nom', $nom);
+            $req_prep->bindParam(':prenom', $prenom);
+            $req_prep->bindParam(':date', $date_naissance);
+            $req_prep->bindParam(':tel', $tel);
+            $req_prep->bindParam(':rue', $rue);
+            $req_prep->bindParam(':cp', $code_postal);
+            $req_prep->bindParam(':ville', $ville);
+            $req_prep->bindParam(':qualite', $qualite);
+            $req_prep->execute();
+        } catch(PDOException $e) {
+            return "erreur";
+        }
+    }
+
+    public static function deletePatient($num) {
+        $sql='DELETE FROM Patient WHERE Num_secu=:num';
+
+        try {
+            $req_prep = Model::$pdo->prepare($sql);
+            $req_prep->bindParam(':num', $num);
+            $req_prep->execute();
+        } catch(PDOException $e) {
+            return "erreur";
+        }
+    }
+
 
 
 
