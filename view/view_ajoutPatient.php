@@ -7,6 +7,7 @@
 <?php include ('view/menu.php'); ?>
 
 <div class="container">
+    <h1 class="thin">Ajouter un patient</h1>
     <form action="controller/controllerPatient.php" method="post">
         <div class="row">
             <div class="input-field col s12">

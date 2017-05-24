@@ -18,7 +18,8 @@
               Téléphone : {$patient->getTel()}</br>
               Adresse : {$patient->getRue()}  {$patient->getCodePostal()}  {$patient->getVille()} </br>
               Qualité : {$patient->getQualite()}</br>
-              Prescripteur : <a href=\"prescripteur.php?idprescripteur={$prescripteur->getNumeroIdentificateur()}\" class=\"waves - effect waves - light btn\">Voir le prescripteur</a></br>";
+              Prescripteur : <a href=\"prescripteur.php?idprescripteur={$prescripteur->getNumeroIdentificateur()}\" class=\"waves - effect waves - light btn\">Voir le prescripteur</a>
+                <div class=\"right-align\" style=\"margin-right: 40px\"><a class=\"btn waves-effect waves-light\" href=\"modifierPatient.php?idpatient={$patient->getNumSecu()}\">Modifier</a></div></br>";
             echo "</td></tr>";
         echo "</table></div></div>";
         ?>
@@ -34,5 +35,3 @@
 <?php  include ('config/js_config.php')?>
 </body>
 </html>
-
-
