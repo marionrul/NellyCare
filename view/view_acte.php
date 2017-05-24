@@ -21,7 +21,7 @@
     </div>
 </div>
 
-<div class="right-align" style="margin-right: 40px">
+<div class="left-align" style="margin-right: 40px">
     <a href="javascript:history.back()">
         <button class="btn waves-effect waves-light #4db6ac teal lighten-2" type="submit" name="action">Retour</button>
     </a>

@@ -6,10 +6,10 @@
 <body>
 <?php include ('view/menu.php'); ?>
 
-<div class="row">
+<div class="container">
     <form action="controller/controllerPrescription.php" method="post">
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12">
                 <input name="date_debut" type="date" class="datepicker">
                 <label for="date_debut">Date de début</label>
             </div>
@@ -37,13 +37,13 @@
             <label>Prescripteur</label>
         </div>
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12">
                 <input name="duree" placeholder="10" id="duree" type="text" class="validate">
                 <label for="duree">Durée</label>
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12">
                 <input name="nbSeances" placeholder="8" id="nbSeances" type="text" class="validate">
                 <label for="nbSeances">Nombre de séances à effectuer</label>
             </div>
@@ -57,6 +57,8 @@
             </select>
             <label>Période</label>
         </div>
+
+
         <button class="btn waves-effect waves-light" type="submit" name="submit">Envoyer
             <i class="material-icons right">envoyer</i>
         </button>

@@ -6,28 +6,28 @@
 <body>
 <?php include ('view/menu.php'); ?>
 
-<div class="row">
+<div class="container">
     <form action="controller/controllerActe.php" method="post">
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12">
                 <input name="nom" placeholder="AMI6" id="nom" type="text" class="validate">
                 <label for="nom">Nom de l'acte</label>
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12">
                 <input name="designation" placeholder="Prise de sang" id="designation" type="text" class="validate">
                 <label for="designation">Désignation</label>
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12">
                 <input name="date_debut" type="date" class="datepicker">
                 <label for="date_debut">Date de début</label>
             </div>
         </div>
         <div class="row">
-            <div class="input-field col s6">
+            <div class="input-field col s12">
                 <input name="tarif" placeholder="25" id="tarif" type="text" class="validate">
                 <label for="tarif">Tarif</label>
             </div>
@@ -48,6 +48,7 @@
         </button>
     </form>
 </div>
+
 
 <?php  include ('config/js_config.php')?>
 </body>
