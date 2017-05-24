@@ -20,6 +20,7 @@
               Période : {$prescription['Periode']}</br>
               Actes : <a href=\"acte.php?idacte={$prescription['Nom_acte']}\" class=\"waves - effect waves - light btn\">Voir les actes</a></br>
               <a href=\"ajoutActe.php\" class=\"waves - effect waves - light btn\">Ajouter un acte</a></br>
+              <div class=\"right - align\" style=\"margin - right: 40px\"><a class=\"btn waves - effect waves - light\" href=\"controller/controllerSupprimerPrescription.php?idprescription={$prescription->getNumPrescription()}\">Supprimer</a></div>
               </br></div>";
         }
         ?>

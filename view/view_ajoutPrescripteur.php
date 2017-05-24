@@ -7,11 +7,11 @@
 <?php include ('view/menu.php'); ?>
 
 <div class="row">
-    <form action="controller/controllerPatient.php" method="post">
+    <form action="controller/controllerPrescripteur.php" method="post">
         <div class="row">
             <div class="input-field col s6">
                 <input name="num" placeholder="6541236" id="num" type="text" class="validate">
-                <label for="num">Numéro de sécurité sociale</label>
+                <label for="num">Numéro d'identificateur</label>
             </div>
         </div>
         <div class="row">
@@ -28,14 +28,8 @@
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input name="date" placeholder="08/04/1996" id="date" type="text" class="validate">
-                <label for="date">Date de naissance</label>
-            </div>
-        </div>
-        <div class="row">
-            <div class="input-field col s6">
-                <input name="tel" placeholder="0645897563" id="tel" type="text" class="validate">
-                <label for="tel">Numéro de téléphone</label>
+                <input name="specialite" placeholder="Cardiologue" id="specialite" type="text" class="validate">
+                <label for="date">Spécialité</label>
             </div>
         </div>
         <div class="row">
@@ -56,36 +50,11 @@
                 <label for="ville">Ville</label>
             </div>
         </div>
-        <div class="input-field col s12">
-            <select name="qualite">
-                <option value="" disabled selected>Qualité</option>
-                <option value="Assure">Assuré(e)</option>
-                <option value="Fils">Enfant</option>
-                <option value="Marie">Conjoint</option>
-            </select>
-            <label>Qualité</label>
-        </div>
-        <div class="input-field col s12">
-            <select name="mutuelle">
-                <option value="" disabled selected>Choisissez la mutuelle</option>
-                <?php
-                foreach($mutuelles as $mutuelle) {
-                    echo "<option value='{$mutuelle->getNumeroMutuelle()}'>{$mutuelle->getNom()}</option>";
-                }
-                ?>
-            </select>
-            <label>Mutuelle</label>
-        </div>
-        <div class="input-field col s12">
-            <select name="caisse">
-                <option value="" disabled selected>Choisissez la caisse</option>
-                <?php
-                foreach($caisses as $caisse) {
-                    echo "<option value='{$caisse->getNumeroCaisse()}'>{$caisse->getNom()}</option>";
-                }
-                ?>
-            </select>
-            <label>Caisse</label>
+        <div class="row">
+            <div class="input-field col s6">
+                <input name="tel" placeholder="0645897563" id="tel" type="text" class="validate">
+                <label for="tel">Numéro de téléphone</label>
+            </div>
         </div>
 
         <button class="btn waves-effect waves-light" type="submit" name="submit">Envoyer
@@ -97,4 +66,3 @@
 <?php  include ('config/js_config.php')?>
 </body>
 </html>
-

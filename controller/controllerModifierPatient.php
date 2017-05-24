@@ -20,10 +20,9 @@ $qualite=$_POST['qualite'];
 $mutuelle=$_POST['mutuelle'];
 $caisse=$_POST['caisse'];
 
-type_formation::type_formation_update($idtype,$libelle,$description,$descriptionsecondaire,$metatitre, $metadescription,$metakeywords,$image,$citation);
+ModelPatient::updatePatient($num, $nom, $prenom, $date, $tel, $rue, $cp, $ville, $qualite,$mutuelle, $caisse);
+header("Location:../fichePatient.php?message=Modifications enregistrées !&couleur=blue");
 
 
-
-echo "ok";
 
 ?>

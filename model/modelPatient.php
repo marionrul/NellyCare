@@ -81,19 +81,6 @@ class ModelPatient extends Model {
         }
     }
 
-    public static function deletePatient($num) {
-        $sql='DELETE FROM Patient WHERE Num_secu=:num';
-
-        try {
-            $req_prep = Model::$pdo->prepare($sql);
-            $req_prep->bindParam(':num', $num);
-            $req_prep->execute();
-        } catch(PDOException $e) {
-            return "erreur";
-        }
-    }
-
-
 
 
 
