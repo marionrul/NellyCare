@@ -67,7 +67,7 @@ class ModelCaisse extends Model {
 
     public function getNom()
     {
-        return $this->Nom;
+        return $this->NomCaisse;
     }
 
     public function getRegime()

@@ -67,7 +67,7 @@ class ModelMutuelle extends Model {
 
     public function getNom()
     {
-        return $this->Nom;
+        return $this->NomMutuelle;
     }
 
     public function getAME()

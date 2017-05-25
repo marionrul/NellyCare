@@ -64,21 +64,23 @@ class ModelPatient extends Model {
         }
     }
 
-    public static function updatePatient($num, $nom, $prenom, $date_naissance, $tel, $rue, $code_postal, $ville, $qualite) {
+    public static function updatePatient($num, $nom, $prenom, $date_naissance, $tel, $rue, $code_postal, $ville, $qualite, $numero_mutuelle, $numero_caisse) {
         $sql='UPDATE Patient 
-        SET Nom=:nom, Prenom=:prenom, Date_naissance=:date, Tel=:tel, Rue=:rue, Code_postal=:cp, Ville=:ville, Qualite=:qualite WHERE Num_secu=:num';
+        SET Nom=:nom, Prenom=:prenom, Date_naissance=:date2, Tel=:tel, Rue=:rue, Code_postal=:cp, Ville=:ville, Qualite=:qualite, Numero_mutuelle=:numM, Numero_caisse=:numC WHERE Num_secu=:num';
 
         try {
             $req_prep = Model::$pdo->prepare($sql);
             $req_prep->bindParam(':num', $num);
             $req_prep->bindParam(':nom', $nom);
             $req_prep->bindParam(':prenom', $prenom);
-            $req_prep->bindParam(':date', $date_naissance);
+            $req_prep->bindParam(':date2', $date_naissance);
             $req_prep->bindParam(':tel', $tel);
             $req_prep->bindParam(':rue', $rue);
             $req_prep->bindParam(':cp', $code_postal);
             $req_prep->bindParam(':ville', $ville);
             $req_prep->bindParam(':qualite', $qualite);
+            $req_prep->bindParam(':numM', $numero_mutuelle);
+            $req_prep->bindParam(':numC', $numero_caisse);
             $req_prep->execute();
         } catch(PDOException $e) {
             return "erreur";

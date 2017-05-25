@@ -11,6 +11,7 @@ require "controller/controller.php";
 if (connexion()) {
     $idpatient = $_GET['idpatient'];
     $patient = ModelPatient::getPatientById($idpatient);
+
     if (!empty($patient->getNumeroMutuelle())){
         $mutuelle = ModelMutuelle::getMutuelle($idpatient);
     }else {
