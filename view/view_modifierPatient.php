@@ -9,17 +9,16 @@
 <div class="container">
     <h1 class="thin">Modifier les informations</h1>
 
-    <div class="row">
     <form action="controller/controllerModifierPatient.php" method="post">
         <div class="row">
             <div class="input-field col s12">
-                <input name="num" placeholder="6541236" id="num" type="text" class="validate" <?php echo"value='{$patient->getNumSecu()}'" ?>>
+                <input name="num" placeholder="6541236" id="num" type="text" class="validate" <?php echo"value=\"".$patient->getNumSecu()."\""; ?>>
                 <label for="num">Numéro de sécurité sociale</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input name="nom" placeholder="RUL" id="nom" type="text" class="validate" <?php echo"value='{$patient->getNom()}'"?>>
+                <input name="nom" placeholder="RUL" id="nom" type="text" class="validate" <?php echo"value='{$patient->getNom()}'";?>>
                 <label for="nom">Nom </label>
             </div>
         </div>
@@ -61,7 +60,7 @@
         </div>
         <div class="input-field col s12">
             <select name="qualite">
-                <option value="<?php echo $patient->getSpecialite();?>" disabled selected>{<?php echo $patient->getQualite(); ?></option>
+                <option value=<?php echo "\"".$patient->getQualite()."\"";?>  selected><?php echo $patient->getQualite(); ?></option>
                 <option value="Assure">Assuré(e)</option>
                 <option value="Fils">Fils</option>
                 <option value="Marie">Marié(e)</option>
@@ -70,7 +69,15 @@
         </div>
         <div class="input-field col s12 m6">
             <select name="mutuelle">
-                <option value="<?php echo $patient->getNumeroMutuelle();?>" disabled selected><?php echo $mutuelle->getNom(); ?></option>
+                <?php if($mutuelle!=""){
+                    ?>
+                <option value=<?php echo "\"".$mutuelle->getNumeroMutuelle()."\"";?> selected><?php echo $mutuelle->getNom(); ?></option>
+                <?php
+                }else{?>
+                 <option value="" disabled selected>Choisissez la mutuelle</option>
+                <?php
+                }?>
+
                 <?php
                 foreach($mutuelles as $mutuelle) {
                     echo "<option value='{$mutuelle->getNumeroMutuelle()}'>{$mutuelle->getNom()}</option>";
@@ -81,7 +88,15 @@
         </div>
         <div class="input-field col s12 ">
             <select name="caisse">
-                <option value="<?php echo $patient->getNumeroCaisse();?>" disabled selected><?php echo $caisse->getNom(); ?></option>
+                <?php if($caisse!=""){
+                    ?>
+                    <option value=<?php echo "\"".$caisse->getNumeroCaisse()."\"";?> selected><?php echo $caisse->getNom(); ?></option>
+                    <?php
+                }else{?>
+                    <option value="" disabled selected>Choisissez la caisse</option>
+                    <?php
+                }?>
+
                 <?php
                 foreach($caisses as $caisse) {
                     echo "<option value='{$caisse->getNumeroCaisse()}'>{$caisse->getNom()}</option>";
@@ -95,7 +110,7 @@
             <i class="material-icons right">envoyer</i>
         </button>
     </form>
-</div>
+
 </div>
 
 <?php  include ('config/js_config.php')?>

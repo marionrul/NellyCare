@@ -2,19 +2,17 @@
 <script src="ressources/js/jquery.js"></script>
 <script src="ressources/js/materialize.js"></script>
 
+
 <script>
 
     $(document).ready(function(){
         $('.parallax').parallax();
         $('.materialboxed').materialbox();
         $('select').material_select();
-        $(".dropdown-button").dropdown();
-        $(".button-collapse").sideNav( {
-            menuWidth: 200,
-            edge: 'left',
-            closeOnClick : true,
-            draggable : true
-        };
+        $(".button-collapse").sideNav();
+        $('.dropdown-button').dropdown();
+        materialize.updateTextFields();
+
     });
 
     $('.datepicker').pickadate({
@@ -28,8 +26,8 @@
 
 <?php if(!empty($message)) { ?>
     <script >
-        $(document) . ready(function () { // permet de générer des toasts après un envoi de formulaire
-            Materialize . toast('<?php echo $message;?>', 4000, '<?php echo $couleur; ?>') // Le 4000 est la durée du toast
+        $(document).ready(function () { // permet de générer des toasts après un envoi de formulaire
+            Materialize.toast('<?php echo $message;?>', 4000, '<?php echo $couleur; ?>') // Le 4000 est la durée du toast
         });
-    </script >
+    </script>
 <?php } ?>

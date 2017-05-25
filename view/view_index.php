@@ -19,7 +19,8 @@
             </div>
             </div>
         </div>
-    </div>
+
+
 <?php  include ('config/js_config.php')?>
 </body>
 </html>

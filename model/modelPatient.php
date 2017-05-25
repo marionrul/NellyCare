@@ -22,10 +22,12 @@ class ModelPatient extends Model {
     private $code_postal;
     private $ville;
     private $qualite;
+    private $numero_mutuelle;
+    private $numero_caisse;
 
-    public function __construct($num_secu = NULL, $nom=NULL, $prenom=NULL, $date_naissance=NULL, $tel=NULL, $rue=NULL, $code_postal=NULL, $ville=NULL, $qualite=NULL)
+    public function __construct($num_secu = NULL, $nom=NULL, $prenom=NULL, $date_naissance=NULL, $tel=NULL, $rue=NULL, $code_postal=NULL, $ville=NULL, $qualite=NULL, $numero_mutuelle=NULL, $numero_caisse=NULL)
     {
-        if (!is_null($num_secu) && !is_null($nom) && !is_null($prenom) && !is_null($date_naissance) && !is_null($tel) && !is_null($rue) && !is_null($code_postal) && !is_null($ville) && !is_null($qualite)) {
+        if (!is_null($num_secu) && !is_null($nom) && !is_null($prenom) && !is_null($date_naissance) && !is_null($tel) && !is_null($rue) && !is_null($code_postal) && !is_null($ville) && !is_null($qualite) && !is_null($numero_mutuelle) && !is_null($numero_caisse)) {
             $this->num_secu = $num_secu;
             $this->nom = $nom;
             $this->prenom = $prenom;
@@ -35,6 +37,8 @@ class ModelPatient extends Model {
             $this->code_postal = $code_postal;
             $this->ville = $ville;
             $this->qualite = $qualite;
+            $this->numero_mutuelle = $numero_mutuelle;
+            $this->numero_caisse=$numero_caisse;
         }
 
     }
@@ -129,6 +133,15 @@ class ModelPatient extends Model {
         return $this->Qualite;
     }
 
+    public function getNumeroMutuelle()
+    {
+        return $this->Numero_mutuelle;
+    }
+
+    public function getNumeroCaisse()
+    {
+        return $this->Numero_caisse;
+    }
 
 
 }

@@ -37,6 +37,27 @@ class ModelMutuelle extends Model {
 
     }
 
+    public static function getMutuelle($num){
+        // Retourne la mutuelle correspondant au patient donné en paramètre
+        $sql ='SELECT * FROM Mutuelle, Patient 
+                WHERE Mutuelle.Numero_mutuelle=Patient.Numero_mutuelle AND Patient.Num_secu=:cle';
+        /*
+         * On utilise une requete sql
+         * On affiche pas directement $numSecu pour eviter les injections sql
+         * on cache donc le parametre le requete jusqu'a qu'on l'execute avec la requete preparee
+         */
+        try{
+            // requête preparée
+            $req_prep =  Model::$pdo->prepare($sql);
+            $req_prep->bindParam(':cle', $num);
+            $req_prep->execute(); // execution de la requete
+            $req_prep->setFetchMode(PDO::FETCH_CLASS, "ModelMutuelle");
+            return $req_prep->fetch();
+        }catch (PDOException $e){
+            return "erreur";
+        }
+    }
+
 
 
     public function getNumeroMutuelle()
