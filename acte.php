@@ -8,8 +8,8 @@
 
 require "controller/controller.php";
 if(connexion()) {
-    $idacte = $_GET['idacte'];
-    $acte = ModelActe::getActeById($idacte);
+    $idprescription = $_GET['idprescription'];
+    $actes = ModelActe::getActe($idprescription);
 
     require "view/view_acte.php";
 }

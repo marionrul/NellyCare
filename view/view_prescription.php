@@ -18,14 +18,19 @@
               Durée de la prescription : {$prescription['Duree']}</br>
               Nombre de séances nécessaires : {$prescription['Nb_seances']}</br>
               Période : {$prescription['Periode']}</br>
-              Actes : <a href=\"acte.php?idacte={$prescription['Nom_acte']}\" class=\"waves - effect waves - light btn\">Voir les actes</a></br>
-              <a href=\"ajoutActe.php\" class=\"waves - effect waves - light btn\">Ajouter un acte</a></br>
+              <a href=\"acte.php?idprescription={$prescription['Num_prescription']}\" class=\"waves - effect waves - light btn\">Voir les actes</a></br>
               <div class=\"right - align\" style=\"margin - right: 40px\"><a class=\"btn waves - effect waves - light\" href=\"controller/controllerSupprimerPrescription.php?idprescription={$prescription['Num_prescription']}\">Supprimer</a></div>
               </br></div>";
         }
         ?>
         </ul>
     </div>
+</div>
+
+<div class="left-align" style="margin-right: 40px">
+    <a href="javascript:history.back()">
+        <button class="btn waves-effect waves-light #4db6ac teal lighten-2" type="submit" name="action">Retour</button>
+    </a>
 </div>
 
 <?php  include ('config/js_config.php')?>

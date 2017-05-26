@@ -20,7 +20,7 @@ $mutuelle= $_POST['mutuelle'];
 $caisse= $_POST['caisse'];
 
 
-if(empty($num) || empty($nom) || empty($prenom) || empty($date) || empty($tel) || empty($rue) || empty($cp) || empty($ville) || empty($qualite) /*|| empty($mutuelle) || empty($caisse)*/) { // Vérifie que l'admin a rentré tous les champs
+if(empty($num) || empty($nom) || empty($prenom) || empty($date) || empty($tel) || empty($rue) || empty($cp) || empty($ville) || empty($qualite) || empty($caisse) /*|| empty($mutuelle)*/) { // Vérifie que l'admin a rentré tous les champs
     echo("Veuillez remplir tous les champs");
 }
 else {

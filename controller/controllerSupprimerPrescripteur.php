@@ -11,9 +11,9 @@ require "../model/modelPrescripteur.php";
 $idprescripteur = $_GET['idprescripteur'];
 $prescripteur = ModelPrescripteur::getPrescripteurById($idprescripteur);
 
-ModelPatient::delete($idprescripteur);
+ModelPrescripteur::delete($idprescripteur);
 
 
-header("Location:../patient.php?message=Patient supprimé !&couleur=blue");
+header("Location:../listePrescripteur.php?message=Prescripteur supprimé !&couleur=blue");
 
 

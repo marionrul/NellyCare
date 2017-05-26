@@ -30,7 +30,7 @@ class ModelActe extends Model {
     }
 
     public static function getActe($numPresc){
-        // Retourne le prescripteur correspondant au patient donné en paramètre
+        // Retourne les actes correspondant à la prescription  donnée en paramètre
         $sql ='SELECT * FROM Acte, Prescription
                 WHERE Prescription.Num_prescription=Acte.Num_prescription AND Prescription.Num_prescription=:cle';
         /*
@@ -43,8 +43,7 @@ class ModelActe extends Model {
             $req_prep =  Model::$pdo->prepare($sql);
             $req_prep->bindParam(':cle', $numPresc);
             $req_prep->execute(); // execution de la requete
-            $req_prep->setFetchMode(PDO::FETCH_CLASS, "ModelActe");
-            return $req_prep->fetch();
+            return $req_prep->fetchall();
         }catch (PDOException $e){
             return "erreur";
         }

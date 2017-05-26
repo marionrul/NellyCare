@@ -40,8 +40,7 @@ class ModelPrescription extends Model {
         // Retourne toutes les infos du patient identifié par le numéro donné en paramètre
         $sql ='SELECT *
                 FROM Prescription P2
-                LEFT JOIN Patient P ON P.Num_secu=P2.Num_secu
-                LEFT JOIN Acte A ON P2.Num_prescription=A.Num_prescription';
+                LEFT JOIN Patient P ON P.Num_secu=P2.Num_secu';
         /*
          * On utilise une requete sql
          * On affiche pas directement $numSecu pour eviter les injections sql

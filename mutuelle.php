@@ -10,6 +10,9 @@ require "controller/controller.php";
 if(connexion()) {
     $idmutuelle = $_GET['idmutuelle'];
     $mutuelle = ModelMutuelle::getMutuelleById($idmutuelle);
+    if(empty($mutuelle)) {
+        echo "Le patient n'a pas de mutuelle";
+    }
 
     require "view/view_mutuelle.php";
 }

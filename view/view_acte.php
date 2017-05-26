@@ -7,17 +7,19 @@
 <?php include ('view/menu.php'); ?>
 
 <div class="row">
-    <div class="card-panel #b2dfdb teal lighten-4" style="width : 20%">
+    <div class="col s12">
+        <ul class="collection with-header">
         <?php
-        echo "<tr><td>";
-                echo "Nom  : {$acte->getNomActe()} </br>
-              Désignation : {$acte->getDesignation()}</br>
-              Date de début : {$acte->getDateDebut()}</br>
-              Tarif appliqué : {$acte->getTarif()}</br>
-              </br>";
-        echo "</td></tr>";
-        echo "</table></div></div>";
-        ?>
+        foreach ($actes as $acte) {
+        echo "<div class=\"card-panel #b2dfdb teal lighten-4\">
+               Nom  : {$acte['Nom_acte']} </br>
+              Désignation : {$acte['Designation']}</br>
+              Date de début : {$acte['Date_debut']}</br>
+              Tarif appliqué : {$acte['Tarif']}</br>
+              </br></div>";
+}
+?>
+        </ul>
     </div>
 </div>
 
@@ -30,4 +32,5 @@
 <?php  include ('config/js_config.php')?>
 </body>
 </html>
+
 
