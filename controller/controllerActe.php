@@ -26,7 +26,7 @@ else {
     $tab2 = array('', $nom, $date, $date);
     ModelActe::insert($tab);
     ModelEvenement::insert($tab2);
-    header("Location:../prescription.php?message=Acte ajouté !&couleur=blue");
+    header("Location:../acte.php?message=Acte ajouté !&couleur=blue");
 }
 
 ?>
