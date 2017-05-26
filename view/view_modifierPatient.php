@@ -71,7 +71,7 @@
             <select name="mutuelle">
                 <?php if($mutuelle!=""){
                     ?>
-                <option value=<?php echo "\"".$mutuelle->getNumeroMutuelle()."\"";?> selected><?php echo $mutuelle->getNom(); ?></option>
+                <option value=<?php echo "\"".$mutuelle->getNumeroMutuelle()."\"";?> selected><?php echo $mutuelle->getNomMutuelle(); ?></option>
                 <?php
                 }else{?>
                  <option value="" disabled selected>Choisissez la mutuelle</option>
@@ -80,7 +80,7 @@
 
                 <?php
                 foreach($mutuelles as $mutuelle) {
-                    echo "<option value='{$mutuelle->getNumeroMutuelle()}'>{$mutuelle->getNom()}</option>";
+                    echo "<option value='{$mutuelle->getNumeroMutuelle()}'>{$mutuelle->getNomMutuelle()}</option>";
                 }
                 ?>
             </select>
@@ -90,7 +90,7 @@
             <select name="caisse">
                 <?php if($caisse!=""){
                     ?>
-                    <option value=<?php echo "\"".$caisse->getNumeroCaisse()."\"";?> selected><?php echo $caisse->getNom(); ?></option>
+                    <option value=<?php echo "\"".$caisse->getNumeroCaisse()."\"";?> selected><?php echo $caisse->getNomCaisse(); ?></option>
                     <?php
                 }else{?>
                     <option value="" disabled selected>Choisissez la caisse</option>
@@ -99,7 +99,7 @@
 
                 <?php
                 foreach($caisses as $caisse) {
-                    echo "<option value='{$caisse->getNumeroCaisse()}'>{$caisse->getNom()}</option>";
+                    echo "<option value='{$caisse->getNumeroCaisse()}'>{$caisse->getNomCaisse()}</option>";
                 }
                 ?>
             </select>

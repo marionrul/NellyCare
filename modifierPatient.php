@@ -13,12 +13,12 @@ if (connexion()) {
     $patient = ModelPatient::getPatientById($idpatient);
 
     if (!empty($patient->getNumeroMutuelle())){
-        $mutuelle = ModelMutuelle::getMutuelle($idpatient);
+        $mutuelle = ModelMutuelle::getMutuelleById($patient->getNumeroMutuelle());
     }else {
         $mutuelle="";
     }
     if (!empty($patient->getNumeroCaisse())){
-        $caisse = ModelCaisse::getCaisse($idpatient);
+        $caisse = ModelCaisse::getCaisseById($patient->getNumeroCaisse());
     }else {
         $caisse="";
     }

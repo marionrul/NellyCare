@@ -58,6 +58,27 @@ class ModelCaisse extends Model {
         }
     }
 
+    public static function getCaisseById($num){
+        $sql ='SELECT *
+                FROM Caisse
+                WHERE  Numero_caisse=:cle';
+        /*
+         * On utilise une requete sql
+         * On affiche pas directement $numSecu pour eviter les injections sql
+         * on cache donc le parametre le requete jusqu'a qu'on l'execute avec la requete preparee
+         */
+        try{
+            // requête preparée
+            $req_prep =  Model::$pdo->prepare($sql);
+            $req_prep->bindParam(':cle', $num);
+            $req_prep->execute(); // execution de la requete
+            $req_prep->setFetchMode(PDO::FETCH_CLASS, "ModelCaisse");
+            return $req_prep->fetch();
+        }catch (PDOException $e){
+            return "erreur";
+        }
+    }
+
 
 
     public function getNumeroCaisse()
@@ -65,7 +86,7 @@ class ModelCaisse extends Model {
         return $this->Numero_caisse;
     }
 
-    public function getNom()
+    public function getNomCaisse()
     {
         return $this->NomCaisse;
     }

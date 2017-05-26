@@ -58,6 +58,27 @@ class ModelMutuelle extends Model {
         }
     }
 
+    public static function getMutuelleById($num){
+        $sql ='SELECT *
+                FROM Mutuelle
+                WHERE  Numero_mutuelle=:cle';
+        /*
+         * On utilise une requete sql
+         * On affiche pas directement $numSecu pour eviter les injections sql
+         * on cache donc le parametre le requete jusqu'a qu'on l'execute avec la requete preparee
+         */
+        try{
+            // requête preparée
+            $req_prep =  Model::$pdo->prepare($sql);
+            $req_prep->bindParam(':cle', $num);
+            $req_prep->execute(); // execution de la requete
+            $req_prep->setFetchMode(PDO::FETCH_CLASS, "ModelMutuelle");
+            return $req_prep->fetch();
+        }catch (PDOException $e){
+            return "erreur";
+        }
+    }
+
 
 
     public function getNumeroMutuelle()
@@ -65,7 +86,7 @@ class ModelMutuelle extends Model {
         return $this->Numero_mutuelle;
     }
 
-    public function getNom()
+    public function getNomMutuelle()
     {
         return $this->NomMutuelle;
     }

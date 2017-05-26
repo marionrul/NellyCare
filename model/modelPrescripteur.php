@@ -79,6 +79,26 @@ class ModelPrescripteur extends Model {
         }
     }
 
+    public static function updatePrescripteur($num, $nom, $prenom, $specialite, $rue, $code_postal, $ville, $tel) {
+        $sql='UPDATE Prescripteur
+        SET Nom=:nom, Prenom=:prenom, Specialite=:spe, Rue=:rue, Code_postal=:cp, Ville=:ville, Tel=:tel WHERE Numero_identificateur=:num';
+
+        try {
+            $req_prep = Model::$pdo->prepare($sql);
+            $req_prep->bindParam(':num', $num);
+            $req_prep->bindParam(':nom', $nom);
+            $req_prep->bindParam(':prenom', $prenom);
+            $req_prep->bindParam(':spe', $specialite);
+            $req_prep->bindParam(':rue', $rue);
+            $req_prep->bindParam(':cp', $code_postal);
+            $req_prep->bindParam(':ville', $ville);
+            $req_prep->bindParam(':tel', $tel);
+            $req_prep->execute();
+        } catch(PDOException $e) {
+            return "erreur";
+        }
+    }
+
 
     public function getNumeroIdentificateur()
     {

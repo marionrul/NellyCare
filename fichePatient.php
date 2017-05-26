@@ -12,6 +12,8 @@ if(connexion()) {
 $idpatient = $_GET['idpatient'];
 $patient = ModelPatient::getPatientById($idpatient);
 $prescripteur = ModelPrescripteur::getPrescripteur($idpatient);
+$mutuelle = ModelMutuelle::getMutuelle($idpatient);
+$caisse=ModelCaisse::getCaisse($idpatient);
 
 require "view/view_fichePatient.php";
 

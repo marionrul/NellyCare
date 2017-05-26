@@ -15,7 +15,9 @@
               Nom : {$prescripteur->getNom()}</br>
               Prénom : {$prescripteur->getPrenom()}</br>
               Téléphone : {$prescripteur->getTel()}</br>
-              Adresse : {$prescripteur->getRue()} {$prescripteur->getCodePostal()}  {$prescripteur->getVille()}  </br></br>
+              Adresse : {$prescripteur->getRue()} {$prescripteur->getCodePostal()}  {$prescripteur->getVille()}  </br>
+              <div class=\"right-align\" style=\"margin-right: 40px\"><a class=\"btn waves-effect waves-light\" href=\"modifierPrescripteur.php?idprescripteur={$prescripteur->getNumeroIdentificateur()}\">Modifier</a></div></br>
+              </br>
               </div>";
             echo "</td></tr>";
         echo "</table></div></div>";

@@ -21,7 +21,7 @@ $mutuelle=$_POST['mutuelle'];
 $caisse=$_POST['caisse'];
 
 ModelPatient::updatePatient($num, $nom, $prenom, $date, $tel, $rue, $cp, $ville, $qualite,$mutuelle, $caisse);
-header("Location:../fichePatient.php?message=Modifications enregistrées !&couleur=blue");
+header("Location:../patient.php?message=Modifications enregistrées !&couleur=blue");
 
 
 
