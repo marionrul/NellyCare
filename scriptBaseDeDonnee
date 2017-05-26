@@ -1,0 +1,151 @@
+#------------------------------------------------------------
+#        Script MySQL.
+#------------------------------------------------------------
+
+
+#------------------------------------------------------------
+# Table: Prescripteur
+#------------------------------------------------------------
+
+CREATE TABLE Prescripteur(
+        Numero_identificateur Varchar (255) NOT NULL ,
+        Nom                   Varchar (255) ,
+        Prenom                Varchar (255) ,
+        Specialite            Varchar (255) ,
+        Rue                   Varchar (255) ,
+        Code_postal           Int ,
+        Ville                 Varchar (255) ,
+        Tel                   Int ,
+        PRIMARY KEY (Numero_identificateur )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Prescription
+#------------------------------------------------------------
+
+CREATE TABLE Prescription(
+        Num_prescription      Int NOT NULL AUTO_INCREMENT,
+        Date_debut            Date ,
+        Duree                 Int ,
+        Nb_seances            Int ,
+        Periode               Varchar (255) ,
+        Numero_identificateur Varchar (255) NOT NULL ,
+        Num_secu              Varchar (255) ,
+        PRIMARY KEY (Num_prescription )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Patient
+#------------------------------------------------------------
+
+CREATE TABLE Patient(
+        Num_secu        Varchar (255) NOT NULL ,
+        Nom             Varchar (255) ,
+        Prenom          Varchar (255) ,
+        Date_naissance  Varchar (255) ,
+        Tel             Int ,
+        Rue             Varchar (255) ,
+        Code_postal     Int ,
+        Ville           Varchar (255) ,
+        Qualite         Varchar (255) ,
+        Numero_mutuelle Varchar (255) ,
+        Numero_caisse   Int ,
+        PRIMARY KEY (Num_secu )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Mutuelle
+#------------------------------------------------------------
+
+CREATE TABLE Mutuelle(
+        Numero_mutuelle Varchar (255) NOT NULL ,
+        NomMutuelle     Varchar (255) ,
+        AME             Bool ,
+        CMU             Bool ,
+        Rue             Varchar (255) ,
+        Code_postal     Int ,
+        Ville           Varchar (255) ,
+        Tel             Int ,
+        PRIMARY KEY (Numero_mutuelle )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Caisse
+#------------------------------------------------------------
+
+CREATE TABLE Caisse(
+        Numero_caisse Int NOT NULL ,
+        NomCaisse     Varchar (25) ,
+        Regime        Varchar (255) ,
+        Centre        Varchar (255) ,
+        Rue           Varchar (255) ,
+        Code_postal   Int ,
+        Ville         Varchar (255) ,
+        Tel           Int ,
+        PRIMARY KEY (Numero_caisse )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Acte
+#------------------------------------------------------------
+
+CREATE TABLE Acte(
+        Nom_acte         Varchar (255) NOT NULL ,
+        Designation      Varchar (255) ,
+        Date_debut       Date ,
+        Tarif            Int ,
+        Num_prescription Int ,
+        PRIMARY KEY (Nom_acte )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Admin
+#------------------------------------------------------------
+
+CREATE TABLE Admin(
+        Num_admin    Int NOT NULL ,
+        Nom          Varchar (255) ,
+        Prenom       Varchar (255) ,
+        Mail         Varchar (255) ,
+        Mot_de_passe Varchar (255) ,
+        Cookie_code  Varchar (255) ,
+        PRIMARY KEY (Num_admin )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: evenement
+#------------------------------------------------------------
+
+CREATE TABLE evenement(
+        id    Int NOT NULL AUTO_INCREMENT ,
+        title Varchar (255) ,
+        start Datetime ,
+        end   Datetime ,
+        PRIMARY KEY (id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Suit
+#------------------------------------------------------------
+
+CREATE TABLE Suit(
+        Numero_identificateur Varchar (255) NOT NULL ,
+        Num_secu              Varchar (255) NOT NULL ,
+        PRIMARY KEY (Numero_identificateur ,Num_secu )
+)ENGINE=InnoDB;
+
+ALTER TABLE Prescription ADD CONSTRAINT FK_Prescription_Numero_identificateur FOREIGN KEY (Numero_identificateur) REFERENCES Prescripteur(Numero_identificateur) ON DELETE CASCADE;
+ALTER TABLE Prescription ADD CONSTRAINT FK_Prescription_Num_secu FOREIGN KEY (Num_secu) REFERENCES Patient(Num_secu) ON DELETE CASCADE;
+ALTER TABLE Patient ADD CONSTRAINT FK_Patient_Numero_mutuelle FOREIGN KEY (Numero_mutuelle) REFERENCES Mutuelle(Numero_mutuelle) ON DELETE CASCADE;
+ALTER TABLE Patient ADD CONSTRAINT FK_Patient_Numero_caisse FOREIGN KEY (Numero_caisse) REFERENCES Caisse(Numero_caisse) ON DELETE CASCADE;
+ALTER TABLE Acte ADD CONSTRAINT FK_Acte_Num_prescription FOREIGN KEY (Num_prescription) REFERENCES Prescription(Num_prescription) ON DELETE CASCADE;
+ALTER TABLE Suit ADD CONSTRAINT FK_Suit_Numero_identificateur FOREIGN KEY (Numero_identificateur) REFERENCES Prescripteur(Numero_identificateur) ON DELETE CASCADE;
+ALTER TABLE Suit ADD CONSTRAINT FK_Suit_Num_secu FOREIGN KEY (Num_secu) REFERENCES Patient(Num_secu) ON DELETE CASCADE;
