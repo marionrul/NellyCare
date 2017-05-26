@@ -8,10 +8,11 @@
 
 require "../model/modelPrescripteur.php";
 
+
 $idprescripteur = $_GET['idprescripteur'];
 $prescripteur = ModelPrescripteur::getPrescripteurById($idprescripteur);
 
-ModelPrescripteur::delete($idprescripteur);
+ModelPrescripteur::deletePrescripteur($idprescripteur);
 
 
 header("Location:../listePrescripteur.php?message=Prescripteur supprimé !&couleur=blue");

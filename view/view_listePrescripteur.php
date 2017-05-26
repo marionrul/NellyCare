@@ -13,7 +13,7 @@
             <?php
             foreach ($prescripteurs as $prescripteur){
                 echo "<li class=\"collection-item\"><div> <a href=\"prescripteur.php?idprescripteur={$prescripteur->getNumeroIdentificateur()}\" class=\"waves-effect waves-light btn\">{$prescripteur->getPrenom()} {$prescripteur->getNom()}</a></div>
-                        <div class=\"right-align\" style=\"margin-right: 40px\"><a class=\"btn waves-effect waves-light\" href=\"controller/controllerSupprimerPrescripteur.php?idpatient={$prescripteur->getNumeroIdentificateur()}\">Supprimer</a></div>
+                        <div class=\"right-align\" style=\"margin-right: 40px\"><a class=\"btn waves-effect waves-light\" href=\"controller/controllerSupprimerPrescripteur.php?idprescripteur={$prescripteur->getNumeroIdentificateur()}\">Supprimer</a></div>
                         </li>";
             }
             ?>

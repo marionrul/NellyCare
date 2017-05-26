@@ -11,7 +11,7 @@ require "../model/modelPrescription.php";
 $idprescription = $_GET['idprescription'];
 $prescription= ModelPrescription::getPrescriptionById($idprescription);
 
-ModelPrescription::delete($idprescription);
+ModelPrescription::deletePrescription($idprescription);
 
 
 header("Location:../prescription.php?message=Prescription supprimée !&couleur=blue");

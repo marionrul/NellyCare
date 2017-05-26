@@ -70,6 +70,7 @@ class ModelActe extends Model {
         }
     }
 
+
     public function getNomActe()
     {
         return $this->Nom_acte;

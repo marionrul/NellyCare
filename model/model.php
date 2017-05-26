@@ -68,48 +68,6 @@ class Model {
 
 
 
-    public static function select($key) {
-        // Permet de sélectionner les lignes d'une table correspondant au paramètre
-
-        $sql = "SELECT * from ".static::$table." WHERE ".static::$primary."=:uneVar";
-
-
-        try{
-
-            $req_prep = Model::$pdo->prepare($sql);
-
-            $req_prep->bindParam(":uneVar", $key); // requête préparée pour éviter les injections, :uneVar est remplacé par $key
-
-            $req_prep->execute();
-
-            $nomModel =  "Model".static::$table ; // concaténation
-
-            $req_prep->setFetchMode(PDO::FETCH_CLASS, $nomModel );
-
-
-            if ($req_prep->rowCount()==0){
-
-                return null;
-
-                die();// Vérifie si $req_prep->rowCount() != 0
-
-            }else{
-
-                $rslt = $req_prep->fetch();
-
-                return $rslt;}
-
-        } catch(PDOException $e) {
-
-            echo $e->getMessage();
-
-            die();
-
-        }
-
-    }
-
-
 
     static function insert($tab){
         // Permet d'insérer des tuples dans une table
@@ -149,30 +107,6 @@ class Model {
     }
 
 
-    static function delete($key) {
-        // Supprime un tuple de la base de données identifié par le nom d'une variable
-
-        $sql = "DELETE FROM ".static::$table." WHERE ".static::$primary.=':nom_var';
-
-        try{
-
-            $req_prep = Model::$pdo->prepare($sql);
-
-            $req_prep->bindParam(":nom_var", $key); // requête préparée
-
-            $req_prep->execute();
-
-            return 0;
-
-        } catch(PDOException $e) {
-
-            echo $e->getMessage(); // affiche un message d'erreur
-
-            die();
-
-        }
-
-    }
 
 }
 

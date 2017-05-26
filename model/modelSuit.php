@@ -26,6 +26,7 @@ class ModelSuit extends Model {
 
     }
 
+
     public function getNumeroIdentificateur()
     {
         return $this->Numero_identificateur;

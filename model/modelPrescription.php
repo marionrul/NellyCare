@@ -78,6 +78,26 @@ class ModelPrescription extends Model {
         }
     }
 
+    public static function deletePrescription($num){
+        $sql ='DELETE
+                FROM Prescription
+                WHERE  Num_prescription:cle';
+        /*
+         * On utilise une requete sql
+         * On affiche pas directement $numSecu pour eviter les injections sql
+         * on cache donc le parametre le requete jusqu'a qu'on l'execute avec la requete preparee
+         */
+        try{
+            // requête preparée
+            $req_prep =  Model::$pdo->prepare($sql);
+            $req_prep->bindParam(':cle', $num);
+            $req_prep->execute(); // execution de la requete
+            return $req_prep->fetch();
+        }catch (PDOException $e){
+            return "erreur";
+        }
+    }
+
 
     public function getNumPrescription()
     {

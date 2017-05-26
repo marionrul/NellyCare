@@ -11,7 +11,8 @@ require "../model/modelPatient.php";
 $idpatient = $_GET['idpatient'];
 $patient = ModelPatient::getPatientById($idpatient);
 
-ModelPatient::delete($idpatient);
+
+ModelPatient::deletePatient($idpatient);
 
 
 header("Location:../patient.php?message=Patient supprimé !&couleur=blue");
